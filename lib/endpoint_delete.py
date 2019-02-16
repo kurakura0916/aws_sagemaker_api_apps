@@ -6,7 +6,7 @@ from config import Config
 
 class EndPointDelete:
     def __init__(self):
-        self.sagemaker_client = Session(profile_name="local").\
+        self.sagemaker_client = Session(profile_name="your_profile").\
             client("sagemaker", region_name="ap-northeast-1")
 
     def execute(self):
