@@ -5,9 +5,9 @@ import yaml
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 API_KEY_FILE = os.path.join(BASE_DIR, "./api-key/api-gateway.yml")
+API_URL = 'your_api_url'
 
-
-def categorical_classifier(data: dict):
+def categorical_classifier(data: dict) -> dict:
     """
     :param data={
     "sepal length": ,
@@ -21,9 +21,6 @@ def categorical_classifier(data: dict):
     with open(API_KEY_FILE, mode="r") as file:
         header = yaml.load(file)
 
-    url = 'https://tf6ab4hll1.execute-api.ap-northeast-1.amazonaws.com/dev/SageMaker-API'
-
-    response = requests.post(url, headers=header, data=json.dumps(data)).json()
+    response = requests.post(API_URL, headers=header, data=json.dumps(data)).json()
     print(response)
     return response
-
