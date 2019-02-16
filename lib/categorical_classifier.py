@@ -22,5 +22,5 @@ def categorical_classifier(data: dict) -> dict:
         header = yaml.load(file)
 
     response = requests.post(API_URL, headers=header, data=json.dumps(data)).json()
-    print(response)
+    
     return response
